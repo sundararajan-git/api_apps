@@ -19,7 +19,8 @@ config();
 
 const PORT = process.env.PORT || 8080;
 
-const whiteList = ["http://localhost:5173"]
+const whiteList = ["http://localhost:5173",
+    "https://sundararajan-git.github.io"]
 
 const corsOptions = {
     origin: (origin, callback) => {
