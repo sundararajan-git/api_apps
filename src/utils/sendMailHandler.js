@@ -1,10 +1,7 @@
 import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 
-import { forgotPasswordTemplate, resetSuccessTemplate, sendWelcomeTemplate, verificationTemplate } from "../emailTemplates/chat/emailTemplate.js";
-
 dotenv.config();
-
 
 class MailService {
 
@@ -20,7 +17,9 @@ class MailService {
     }
 
 
-    async sendVerificationMail(to, subject, verificationToken) {
+    async sendVerificationMail(to, subject, verificationToken,
+        verificationTemplate
+    ) {
 
         const mailOptions = {
             from: this.from,
@@ -36,7 +35,7 @@ class MailService {
         }
     }
 
-    async sendWelcomeCall(to, subject, name) {
+    async sendWelcomeCall(to, subject, name, sendWelcomeTemplate) {
 
         const mailOptions = {
             from: this.from,
@@ -53,7 +52,7 @@ class MailService {
 
     }
 
-    async forgotPassword(to, subject, link) {
+    async forgotPassword(to, subject, link, forgotPasswordTemplate) {
 
         const mailOptions = {
             from: this.from,
@@ -70,7 +69,7 @@ class MailService {
 
     }
 
-    async passwordRestSuccess(to, subject) {
+    async passwordRestSuccess(to, subject, resetSuccessTemplate) {
 
         const mailOptions = {
             from: this.from,

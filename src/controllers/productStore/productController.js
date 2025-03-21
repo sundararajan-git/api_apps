@@ -13,7 +13,7 @@ export const getProducts = async (req, res, next) => {
   }
 };
 
-export const getProduct = async (req, res) => {
+export const getProduct = async (req, res, next) => {
   try {
     const { id } = req.body;
 
@@ -30,7 +30,7 @@ export const getProduct = async (req, res) => {
   }
 };
 
-export const addProduct = async (req, res) => {
+export const addProduct = async (req, res, next) => {
   try {
     const { name, price, description, image } = req.body;
 
@@ -47,7 +47,7 @@ export const addProduct = async (req, res) => {
   }
 };
 
-export const updateProduct = async (req, res) => {
+export const updateProduct = async (req, res, next) => {
   try {
     const { name, price, description, image, id } = req.body;
 
@@ -66,7 +66,7 @@ export const updateProduct = async (req, res) => {
   }
 };
 
-export const deleteProduct = async (req, res) => {
+export const deleteProduct = async (req, res, next) => {
   try {
     const { id } = req.body;
 

@@ -13,20 +13,20 @@ import { verifyToken } from "../../middleware/validUser.js";
 
 const router = express.Router();
 
-router.get("/isvaliduser", verifyToken, isValidUser);
-
 router.post("/signup", signUp);
 
 router.post("/verify", verifyEmail);
 
 router.post("/login", login);
 
-router.post("/logout", logout);
+router.get("/isvaliduser", verifyToken, isValidUser);
 
-router.put("/updateprofile", updateProfile);
+router.post("/logout", logout);
 
 router.put("/resetpassword/:token", resetPassword);
 
 router.post("/forgotpassword", forgotPassword);
+
+router.put("/updateprofile", updateProfile);
 
 export default router;

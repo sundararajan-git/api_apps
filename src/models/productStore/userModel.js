@@ -47,6 +47,6 @@ const userSchema = new Schema(
   }
 );
 
-const User = model("User", userSchema);
+const User = model("productStore-users", userSchema);
 
 export default User;

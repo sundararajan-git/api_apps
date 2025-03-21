@@ -6,6 +6,10 @@ import { connectDB } from "./db/connectDB.js";
 import { app, server } from "./sockets/socket.js";
 import { errorHandler } from "./middleware/errorHandler.js";
 
+// product store application
+import productStoreUserRoutes from "./routes/productStore/authRoutes.js"
+import productStoreProductsRoutes from "./routes/productStore/productRoutes.js"
+
 // chat app application
 import chatAppuserRoutes from "./routes/chat/userRoutes.js"
 import chatAppchatsRoutes from "./routes/chat/chatRoutes.js"
@@ -33,6 +37,11 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+
+
+// product store application
+app.use("/api/v1/productstore/user", productStoreUserRoutes)
+app.use("/api/v1/productstore/products", productStoreProductsRoutes)
 
 // chat application
 app.use("/api/v1/chatapp/user", chatAppuserRoutes);
